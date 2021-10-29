@@ -8,6 +8,7 @@ import Favourite from "./components/Favourite";
 import Addform from "./components/Addform";
 import Editform from "./components/Editform";
 import Main from "./components/Main";
+import Buy from "./components/Buy";
 
 export default function App() {
   return (
@@ -32,6 +33,9 @@ export default function App() {
           </Route>
           <Route path="/books">
             <Home />
+          </Route>
+          <Route path="/userBooks">
+            <Buy />
           </Route>
           <Route path="/">
             <Main />

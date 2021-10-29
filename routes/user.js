@@ -3,6 +3,7 @@ const router = express.Router()
 const bcrypt = require('bcrypt')
 const User = require('../model/user');
 const Fav = require('../model/fav');
+const Buy = require('../model/buy')
 const Book = require('../model/books');
 
 
@@ -82,8 +83,31 @@ router.post('/addFav', async (req, res) => {
     })
 })
 
+router.post('/buy', async (req, res) => {
+    const { title, user } = req.body;
+    const result = await Book.find({ title: title })
+    const latestBuy = new Buy({ title, author: result[0].author, genre: result[0].genre, user });
+    latestBuy.save().then((result) => {
+        res.status(200).send({ msg: "saved" })
+    }).catch((err) => {
+        console.log(err)
+        res.status(500).send({ msg: "error" })
+    })
+})
+
 router.get('/getFavs/:user', async (req, res) => {
     Fav.find({ user: req.params.user })
+        .then((result) => {
+            res.send(result).status(200)
+        }).catch((err) => {
+            console.log(err)
+            res.status(200).send({ msg: "Error" })
+        })
+})
+
+
+router.get('/getBuys/:user', async (req, res) => {
+    Buy.find({ user: req.params.user })
         .then((result) => {
             res.send(result).status(200)
         }).catch((err) => {

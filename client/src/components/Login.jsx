@@ -44,24 +44,26 @@ function Login() {
         )
     } else if (status) {
         return (
-            <div>
-                <form class="form-signin" onSubmit={submit}>
-                    <h2 class="form-signin-heading">Please Sign in</h2>
-                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                        {status}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <label for="inputPassword" class="sr-only">Username</label>
-                    <input type="text" class="form-control" placeholder="Username"
-                        required style={{ marginBottom: 10 }} value={data.username} name='username' onChange={inputEvent} />
-                    <label for="inputPassword" class="sr-only">Password</label>
-                    <input type="password" class="form-control" placeholder="Password"
-                        required style={{ marginBottom: 10 }} value={data.password} name='password' onChange={inputEvent} />
-                    <button class="btn btn-lg btn-primary btn-block mb-4" type="submit">Sign in</button>
-                </form>
-                <ul class="register">New here?<Link to="/register" class="signup">Sign Up.</Link></ul>
+            <div className="flex-login">
+                <div>
+                    <form class="form-signin" onSubmit={submit}>
+                        <h2 class="form-signin-heading">Please Sign in</h2>
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            {status}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <label for="inputPassword" class="sr-only">Username</label>
+                        <input type="text" class="form-control" placeholder="Username"
+                            required style={{ marginBottom: 10 }} value={data.username} name='username' onChange={inputEvent} />
+                        <label for="inputPassword" class="sr-only">Password</label>
+                        <input type="password" class="form-control" placeholder="Password"
+                            required style={{ marginBottom: 10 }} value={data.password} name='password' onChange={inputEvent} />
+                        <button class="btn btn-lg btn-primary btn-block mb-4" type="submit">Sign in</button>
+                    </form>
+                    <ul class="register">New here?<Link to="/register" class="signup">Sign Up.</Link></ul>
+                </div>
             </div>
         )
     } else {

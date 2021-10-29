@@ -15,9 +15,9 @@ app.use(express.static(path.join(__dirname, "client", "build")))
 // ...
 
 //DB
-const local = "mongodb://localhost:27017/Grocery"
+const local = "mongodb://localhost:27017/Books";
 const url = "mongodb+srv://bhxshxn:bhxshxn@9@cluster0.ixoza.mongodb.net/Books?Writes=true&w=majority"
-mongoose.connect(url, {
+mongoose.connect(local, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,

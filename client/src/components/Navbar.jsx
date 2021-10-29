@@ -31,6 +31,7 @@ function Navbar() {
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <Link class="dropdown-item" to='/favourite'>Favourites</Link>
+                                        <Link class="dropdown-item" to='/userBooks'>My Books</Link>
                                         <Link class="dropdown-item" to='/addbook'>Add Book</Link>
                                         <a class="dropdown-item" onClick={logout}>Logout</a>
                                     </div>
@@ -63,6 +64,7 @@ function Navbar() {
                                         {Cookies.get('user')}
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <Link class="dropdown-item" to='/userBooks'>My Books</Link>
                                         <Link class="dropdown-item" to='/favourite'>Favourites</Link>
                                         <a class="dropdown-item" onClick={logout}>Logout</a>
                                     </div>

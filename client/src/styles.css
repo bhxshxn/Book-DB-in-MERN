@@ -75,17 +75,17 @@ body {
     color: rgb(248, 16, 16)
 }
 
-.fa-edit, .fa-trash {
+.fa-edit, .fa-trash, .fa-shopping-basket, .fa-eye {
     color: rgb(26, 168, 235);
     margin: 2px;
 }
 
-.heart-button {
+.heart-button, .buy-button {
     background-color: transparent;
     border: none;
 }
 
-.heart-button:active {
+.heart-button:active, .buy-button:active {
     background-color: transparent;
     border: none;
 }
@@ -105,11 +105,17 @@ body {
 .flex {
     height: 91vh;
     width: 100vw;
-    background-image: url('./components/images/wallpapertip_library-desktop-wallpaper_425055.jpg');
+    background-image: url('./components/images/LIBRARY\ SYSTEM.png');
     background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.flex-login {
+    height: 91vh;
+    width: 100vw;
+    background-image: url('./components/images/login.png');
 }
 
 .head {

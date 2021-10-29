@@ -25,6 +25,16 @@ function Home() {
             toast.error('Login First')
         }
     }
+    const buy = async (title, e) => {
+        const user = Cookies.get('user')
+        if (user) {
+            const data = { title, user }
+            const res = await axios.post('/user/buy', data)
+            toast.success("Check your Books")
+        } else {
+            toast.error('Login First')
+        }
+    }
     const delBook = async (title, e) => {
         const user = Cookies.get('user')
         if (user) {
@@ -95,7 +105,8 @@ function Home() {
                                 <th scope="col">Title</th>
                                 <th scope="col">Author</th>
                                 <th scope="col">Genre</th>
-                                <th scope="col">Action</th>
+                                <th scope="col">Favourites</th>
+                                <th scope="col">Buy</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -107,6 +118,7 @@ function Home() {
                                     <td>{ele.author}</td>
                                     <td>{ele.genre}</td>
                                     <td><button className="heart-button" onClick={(e) => saveFav(ele.title, e)}><i class="fas fa-heart"></i></button></td>
+                                    <td><button className="buy-button" onClick={(e) => buy(ele.title, e)}><i class="fas fa-shopping-basket"></i></button></td>
                                 </tr>
                                 )
                             })}
